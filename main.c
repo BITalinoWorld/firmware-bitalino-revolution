@@ -2,8 +2,8 @@
  * \file
  * \copyright  Copyright 2014-2016 PLUX - Wireless Biosignals, S.A.
  * \author     Filipe Silva
- * \version    1.0
- * \date       February 2016
+ * \version    1.1
+ * \date       July 2016
  *
  * \section LICENSE
  
@@ -27,7 +27,7 @@
 
 
 // Global program memory variables
-const char PROGMEM versionStr[] = "BITalino_v5.1\n";
+const char PROGMEM versionStr[] = "BITalino_v5.2\n";
 
 // Global variables
 word batThres = BATTHRES_BASE; // default battery threshold of 3.4 V

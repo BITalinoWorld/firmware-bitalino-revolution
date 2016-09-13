@@ -2,8 +2,8 @@
  * \file
  * \copyright  Copyright 2014-2016 PLUX - Wireless Biosignals, S.A.
  * \author     Filipe Silva
- * \version    1.0
- * \date       October 2015
+ * \version    1.1
+ * \date       July 2016
  *
  * \section LICENSE
  
@@ -204,7 +204,7 @@ static void add_tx_data(const void *data, byte siz)
    }
    
    // if in CTS mode, start sending data only if CTS is active
-   // if aquiring at 1000 Hz, send every 2 frames to overcome BLE113 module problem (problems with inter-frame period of 1 ms)
+   // if aquiring at 1000 Hz, send every 2 frames to overcome BT121 module problem (problems with inter-frame period of 1 ms)
    if (btStatMode || (!ISSET_CTS && !(TCCR1B == (B(WGM12) | B(CS11)) && (seq & 1))))
       UCSR0B |= B(UDRIE0); // enable UDRE interrupt (if not already enabled)
 }
@@ -297,6 +297,11 @@ void sendStatus(void)
    
    // send battery threshold and calculate CRC
    byte b = batThres - BATTHRES_BASE;
+   add_tx_data(&b, sizeof b);
+   crc = byteCRC(crc, b);
+   
+   // send analog output value and calculate CRC
+   b = OCR0B;
    add_tx_data(&b, sizeof b);
    crc = byteCRC(crc, b);
    

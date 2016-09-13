@@ -2,8 +2,8 @@
  * \file
  * \copyright  Copyright 2014-2016 PLUX - Wireless Biosignals, S.A.
  * \author     Filipe Silva
- * \version    1.0
- * \date       April 2016
+ * \version    1.1
+ * \date       July 2016
  *
  * \section LICENSE
  
@@ -44,7 +44,7 @@
 
 #define TXBUFSIZ        1500  // UART TX buffer size in bytes
 
-#define EE_BT_PROG_VAL  0x51  // shall be based in FW version (v5.0)
+#define EE_BT_PROG_VAL  0x52  // shall be based in FW version (v5.2)
 
 
 #include "build/pins.h"       // build/pins.h is processed from pins.h
