@@ -38,7 +38,7 @@ static bool pendingPWMval = false;
 void sendStatus(void);  // cannot be static because it needs a stack frame (called from a naked ISR)
 
 
-ISR(USART_RX_vect, ISR_NAKED)  // Receive UART Data
+ISR(USART_RX_vect)  // Receive UART Data
 {
    byte cmd = UDR0;
    
